@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+</head>
+
+<body>
+    <div id="app">
+        <v-app>
+            <v-content>
+                <v-container>
+                    <v-card class="mx-auto" width="300">
+                        <v-list>
+                            <v-list-item>
+                                <v-list-item-title>全栈阿布</v-list-item-title>
+                            </v-list-item>
+                            <v-list-group value="true">
+                                <template v-slot:activator>
+                                    <v-list-item-title>技术</v-list-item-title>
+                                </template>
+
+                                <v-list-group no-action sub-group value="true">
+                                    <template v-slot:activator>
+                                        <v-list-item-content>
+                                            <v-list-item-title>前端</v-list-item-title>
+                                        </v-list-item-content>
+                                    </template>
+
+                                    <v-list-item v-for="(admin, i) in admins" :key="i" link>
+                                        <v-list-item-title>{{admin[0]}}</v-list-item-title>
+
+                                    </v-list-item>
+                                </v-list-group>
+
+                                <v-list-group sub-group no-action>
+                                    <template v-slot:activator>
+                                        <v-list-item-content>
+                                            <v-list-item-title>后端</v-list-item-title>
+                                        </v-list-item-content>
+                                    </template>
+                                    <v-list-item v-for="(crud, i) in cruds" :key="i" @click="">
+                                        <v-list-item-title>{{crud[0]}}</v-list-item-title>
+                                    </v-list-item>
+                                </v-list-group>
+                            </v-list-group>
+                        </v-list>
+                    </v-card>
+                </v-container>
+            </v-content>
+        </v-app>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+    <script src="./config.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            vuetify: new Vuetify(),
+            data: function () {
+                return book
+            }
+        })
+    </script>
+</body>
+
+</html>
